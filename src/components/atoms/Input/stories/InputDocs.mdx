@@ -1,0 +1,72 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import * as Input from "./Input.stories";
+
+<Meta of={Input} />
+
+# Input
+
+The Input component is a customizable input field that includes optional features like labels, descriptions, and error messages. It is designed to be flexible and can be integrated into various forms and user interfaces.
+
+## Properties
+
+- **label** (string): The label for the input field.
+- **description** (string): A description or helper text for the input field.
+- **errorMessage** (string): An error message to display if there's an error.
+- **className** (string): Additional class names to apply to the input wrapper.
+- **inputProps** `(InputHTMLAttributes<HTMLInputElement>)`: Additional props to pass to the `<input>` element.
+- **placeholder** (string): Placeholder text for the input field.
+
+Here are the class names used in the `Input` component along with their descriptions:
+
+### `willeder-input-wrapper`
+
+- **Description**: This is the wrapper class for the entire input component. It encompasses the label, description, input field, and error message. It provides a container for all the sub-elements and can be styled to add margins, padding, borders, or other layout-related styles.
+
+### `willeder-input-label`
+
+- **Description**: This class is applied to the `<label>` element if a `label` prop is provided. It is used to style the label text associated with the input field, often to add font styling, spacing, and alignment.
+
+### `willeder-input-description`
+
+- **Description**: This class is applied to the `<p>` element that displays the description or helper text for the input field. It provides styling for the description, which could include font size, color, and spacing to differentiate it from other text.
+
+### `willeder-input`
+
+- **Description**: This class is applied to the `<input>` element itself. It is used to style the input field, including its size, border, background, font, padding, and other input-related styles.
+
+### `willeder-input-error`
+
+- **Description**: This class is applied to the `<p>` element that displays the error message if the `errorMessage` prop is provided. It is used to style the error text, typically with a different color (often red), font styling, and possibly additional spacing to highlight the error state.
+
+### `className` (prop)
+
+- **Description**: This is an additional class name passed as a prop to the wrapper element (`willeder-inputWrapper`). It allows for custom styling from outside the component, enabling users to apply additional styles or overrides to the wrapper.
+
+### `inputProps?.className` (prop)
+
+- **Description**: This is an additional class name passed as a prop to the `<input>` element within `inputProps`. It allows for custom styling from outside the component, enabling users to apply additional styles or overrides specifically to the input element.
+
+## Example Usage
+
+Here's an example of how to use the `Input` component:
+
+## Usage
+
+Here's an example of how to use the Input component:
+
+```tsx
+<Input
+  label="Input Label"
+  placeholder="Placeholder"
+  description="Here goes your input Description"
+  errorMessage="Error Message"
+  inputProps={{
+    type: "text",
+    name: "example",
+    className: "custom-input-class",
+  }}
+  className="custom-wrapper-class"
+/>
+```
+
+<Canvas of={Input.Primary} />

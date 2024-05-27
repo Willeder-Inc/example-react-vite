@@ -4,7 +4,7 @@ import { translations as enTranslation } from "./en"
 import { translations as jaTranslation } from "./ja"
 
 i18next.use(initReactI18next).init({
-  lng: "ja",
+  lng: "en",
   debug: true,
   resources: {
     en: {
@@ -14,5 +14,5 @@ i18next.use(initReactI18next).init({
       translation: jaTranslation,
     },
   },
-  fallbackLng: "ja",
+  fallbackLng: "en",
 })

@@ -1,0 +1,83 @@
+import { Meta, Canvas } from "@storybook/blocks";
+import * as ButtonStories from "./Button.stories.ts";
+
+<Meta of={ButtonStories} />
+
+# Button
+
+The `Button` component is a versatile button element that can include icons, loading states, and custom content. It is designed to be flexible and can be integrated into various parts of the user interface.
+
+## Properties
+
+- **children** (ReactNode): The content to be displayed inside the button.
+- **icon** (ReactNode): An optional icon to be displayed inside the button.
+- **iconPosition** (`left` | `right`): The position of the icon relative to the button content. Defaults to `left`.
+- **isLoading** (boolean): A flag indicating whether the button is in a loading state. Defaults to `false`.
+- **loaderComponent** (ReactNode): An optional custom loader component to be displayed when the button is in a loading state.
+- **props** (`ButtonHTMLAttributes<HTMLButtonElement>`): Additional props to pass to the `<button>` element.
+
+```tsx
+<div className="willeder-button-wrapper">
+  <button
+    {...props}
+    className={`willeder-button ${iconPosition} ${props.className || ""}`}
+    {...(isLoading && { disabled: true })}
+  >
+    {isLoading ? (
+      loaderComponent || <div className="willeder-button-loader"></div>
+    ) : (
+      <>
+        {icon && <div className="willeder-button-icon">{icon}</div>}
+        {children}
+      </>
+    )}
+  </button>
+</div>
+```
+
+## Class Names
+
+Here are the class names used in the `Button` component along with their descriptions:
+
+### `willeder-button-wrapper`
+
+- **Description**: This is the wrapper class for the button component. It provides a container for the button element and can be styled to add margins, padding, borders, or other layout-related styles.
+
+### `willeder-button`
+
+- **Description**: This class is applied to the `<button>` element itself. It is used to style the button, including its size, border, background, font, padding, and other button-related styles.
+
+### `willeder-button-loader`
+
+- **Description**: This class is applied to the default loader element when the button is in a loading state. It is used to style the loader, which typically includes animations or other visual cues to indicate loading.
+
+### `willeder-button-icon`
+
+- **Description**: This class is applied to the icon element within the button. It is used to style the icon, including its size, positioning, and spacing relative to the button content.
+
+## Example Usage
+
+Here's an example of how to use the `Button` component:
+
+```tsx
+import React from "react";
+import Button from "./Button";
+
+const Example = () => (
+  <Button
+    icon={<span className="icon-class" />}
+    iconPosition="left"
+    isLoading={false}
+    className="custom-button-class"
+  >
+    Click Me
+  </Button>
+);
+
+export default Example;
+```
+
+<Canvas of={ButtonStories.ButtonDefault} />
+<Canvas of={ButtonStories.ButtonWithIcon} />
+<Canvas of={ButtonStories.LoadingDefault} />
+<Canvas of={ButtonStories.LoadingWithCustom} />

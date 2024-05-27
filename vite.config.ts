@@ -10,6 +10,7 @@ export default defineConfig({
       "@/*": path.resolve(__dirname, "./src"),
       atoms: path.resolve(__dirname, "./src/components/atoms"),
       pages: path.resolve(__dirname, "./src/pages"),
+      molecules: path.resolve(__dirname, "./src/components/molecules"),
     },
   },
 })
